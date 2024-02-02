@@ -1,7 +1,7 @@
 project('light', 'cpp',
     version : '0.0.1',
     license : 'GPL3',
-    default_options : ['c_std=c17','cpp_std=c++17']
+    default_options : ['cpp_std=c++17']
 )
 
 ## Dependencies

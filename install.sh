@@ -37,5 +37,8 @@ if [[  $1 == "--only-build" ]];  then
 else
         echo "Installing, Requiring elevation to install to /usr/local/bin/ and /etc/."
         sudo cp ./src/light /usr/local/bin/light
-        echo "Installed!"
+        if ! [[ -d /etc/light ]]; then
+                sudo mkdir /etc/light
+        fi
+        sudo cp ./config/conf.json /etc/light/conf.json
 fi

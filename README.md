@@ -17,13 +17,20 @@ We're not trying to reinvent the wheel... This is more meant to be a proof of co
 
 ---
 
+### Dependancies:
+
+- `opencxx-cli >= 0.0.1`
+- `jsoncpp >= 1.9.4`
+- `libcurl >= 8.5.0`
+
 ### How to install/compile:
 
-1. Copy the git repository locally
+1. Ensure dependencies are installed.
+2. Copy the git repository locally:
    1. `git clone https://github.com/hurbIndustries/LIGHT.git`
    2. `cd LIGHT`
-2. Use provided script `./install.sh` for easy installation.
-3. Configuration files are available in `/etc/light/conf.json`
+3. Use provided script `./install.sh` for easy installation.
+4. Configuration files are available in `/etc/light/conf.json`
 
 ---
 

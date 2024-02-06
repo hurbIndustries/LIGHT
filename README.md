@@ -58,6 +58,6 @@ Please feel free to open a pull request! We will be actively watching and helpin
 
 Discord - https://discord.gg/5ud2zGVC.
 
-*Made with love*
-*Copyright 2024 - hurbIndustries*
-*Originally written by JPD*
+*Made with love.*
+
+*Copyright 2024 - hurbIndustries. Originally written by JPD.*

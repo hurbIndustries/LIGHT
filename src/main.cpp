@@ -1,8 +1,8 @@
 #include <iostream>
-#include <opencxx-cli/test.h>
+#include <opencxx-cli/colors.h>
 
 int main() {
-    std::cout << "Hello World\n";
-    opencli::test::testFunc();
+    opencxx_cli::CLI cli;
+    cli.printLnColor("Hello World. This is LIGHT", cli.fgBlue);
     return 0;
 }

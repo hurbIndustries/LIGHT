@@ -1,13 +1,17 @@
 #include <iostream>
-#include <opencxx-cli/colors.h>
 #include <opencxx-cli/cli.h>
+#include "../include/funcs.h"
 
-int main() {
-    opencxx_cli::colors cliColor;
+using namespace std;
+using namespace opencxx_cli;
+using namespace light;
+
+int main(int argc, char *argv[]) {
     opencxx_cli::CLI cli;
-    cliColor.printLnColor("Hello World. This is LIGHT", cliColor.fgBlue);
-    struct opencxx_cli::CLI::handler handler;
-    handler.name = "Hello World";
-    cli.help(handler);
+    std::vector<CLI::entryData> entries;
+    cli.addEntry("--sync", "-s", funcs::sync, &entries);
+    cli.addEntry("--fetch", "-f", funcs::fetch, &entries);
+
+    cli.parse(entries, cli.vectorize(argc, argv));
     return 0;
 }

@@ -1,10 +1,10 @@
 source_files = [
     'main.cpp',
-    'funcs.cpp'
+    'update.cpp'
 ]
 
 light = executable('light',
     source_files,
     include_directories : inc,
-    dependencies : [cli_dep]
+    dependencies : [cli_dep, curl_dep, json_dep]
 )

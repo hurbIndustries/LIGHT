@@ -5,8 +5,9 @@ project('light', 'cpp',
 )
 
 ## Dependencies
-curl_dep = dependency('libcurl')
-cli_dep = dependency('opencxx-cli')
+curl_dep = dependency('libcurl', version:'>=8.5.0')
+json_dep = dependency('jsoncpp', version:'>=1.9.4')
+cli_dep = dependency('opencxx-cli', version:'>=0.0.3')
 
 
 add_global_arguments(language : 'cpp')

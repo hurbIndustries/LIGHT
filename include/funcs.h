@@ -9,8 +9,8 @@
 namespace light {
     class funcs {
         public:
-        static int sync();
-        static int fetch();
+        static int update();
+        //static int fetch();
     };
 }
 

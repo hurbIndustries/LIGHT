@@ -46,10 +46,11 @@ int downloadEach(string url, string name) {
     curl_easy_setopt(easy, CURLOPT_URL, url.c_str());
     curl_easy_setopt(easy, CURLOPT_USERAGENT, "libcurl-agent/1.0");
     curl_easy_setopt(easy, CURLOPT_WRITEDATA, fp);
-    curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, writeFile);
+    curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, &writeFile);
     res = curl_easy_perform(easy);
     if(res != CURLE_OK) {
-        cli.error("CURL: "+res);
+        string err = curl_easy_strerror(res);
+        cli.error("CURL: "+err);
         return 1;
     }
     curl_easy_cleanup(easy);

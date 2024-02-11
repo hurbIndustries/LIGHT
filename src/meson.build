@@ -1,6 +1,6 @@
 source_files = [
     'main.cpp',
-    'cliFuncs.cpp'
+    'funcs.cpp'
 ]
 
 light = executable('light',

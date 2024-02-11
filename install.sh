@@ -41,4 +41,5 @@ else
                 sudo mkdir /etc/light
         fi
         sudo cp ./config/conf.json /etc/light/conf.json
+        sudo cp ./config/repositories.json /etc/light/repositories.json
 fi

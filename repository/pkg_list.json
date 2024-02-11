@@ -1,0 +1,10 @@
+[
+    {
+        "name":"test",
+        "ver":"0.0.1",
+        "author":"JPD",
+        "license":"Copyright",
+        "src":"",
+        "binary":"test.tar.gz"
+    }
+]

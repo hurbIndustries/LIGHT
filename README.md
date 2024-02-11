@@ -19,7 +19,7 @@ We're not trying to reinvent the wheel... This is more meant to be a proof of co
 
 ### Dependancies:
 
-- `opencxx-cli >= 0.0.1`
+- `opencxx-cli >= 0.0.3`
 - `jsoncpp >= 1.9.4`
 - `libcurl >= 8.5.0`
 
@@ -31,6 +31,12 @@ We're not trying to reinvent the wheel... This is more meant to be a proof of co
    2. `cd LIGHT`
 3. Use provided script `./install.sh` for easy installation.
 4. Configuration files are available in `/etc/light/conf.json`
+
+---
+
+### How do I set up a repository?
+
+__Coming soon!__
 
 ---
 

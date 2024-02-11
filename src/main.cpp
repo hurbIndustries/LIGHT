@@ -9,8 +9,8 @@ using namespace light;
 int main(int argc, char *argv[]) {
     opencxx_cli::CLI cli;
     std::vector<CLI::entryData> entries;
-    cli.addEntry("--sync", "-s", funcs::sync, &entries);
-    cli.addEntry("--fetch", "-f", funcs::fetch, &entries);
+    cli.addEntry("--update", "-u", funcs::sync, &entries, "Update repository information.");
+    cli.addEntry("--fetch", "-f", funcs::fetch, &entries, "Fetch and install from repository.");
 
     cli.parse(entries, cli.vectorize(argc, argv));
     return 0;

@@ -2,6 +2,6 @@
     {
         "name":"base-indev",
         "verReq":"0.0.1",
-        "url":"http://"
+        "url":"http://192.168.1.7/"
     }
 ]

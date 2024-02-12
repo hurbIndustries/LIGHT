@@ -22,6 +22,10 @@ size_t writeFile(char *ptr, size_t size, size_t nmemb, void *userdata) {
     return size*nmemb;
 }
 
+int downloadPkgList(string name) {
+    
+}
+
 int downloadEach(string url, string name) {
     CURLcode res;
     CURL *easy = curl_easy_init();

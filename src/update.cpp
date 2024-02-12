@@ -18,35 +18,35 @@ using namespace light;
 opencxx_cli::CLI cli;
 
 size_t writeFile(char *ptr, size_t size, size_t nmemb, void *userdata) {
-    FILE *stream = (FILE*)userdata;
-    if(!stream) {
-        cli.error("writeFile(): NO STREAM.");
-        return 1;
-    }
-
-    size_t written = fwrite((FILE*)ptr, size, nmemb, stream);
-    return written;
+    ((std::string*)userdata)->append((char*)ptr, size*nmemb);
+    return size*nmemb;
 }
 
 int downloadEach(string url, string name) {
     CURLcode res;
     CURL *easy = curl_easy_init();
     string fn = "/var/light/"+name+"/repo.json";
+    std::string s;
+    fstream file;
 
     if(!filesystem::exists(fn)) {
         cli.info("NEW REPOSITORY: "+name);
         //filesystem::create_directories(fn);
     }
 
-    FILE *fp = fopen(fn.c_str(), "wb");
+    FILE* fp = fopen(fn.c_str(), "wb");
+    if(!fp) {
+        cli.error("Could not open file: "+fn);
+        exit(1);
+    }
 
     url = url.append("/light/repo.json");
     cli.info("Downloading: "+url);
 
     curl_easy_setopt(easy, CURLOPT_URL, url.c_str());
     curl_easy_setopt(easy, CURLOPT_USERAGENT, "libcurl-agent/1.0");
-    curl_easy_setopt(easy, CURLOPT_WRITEDATA, fp);
-    curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, &writeFile);
+    curl_easy_setopt(easy, CURLOPT_WRITEDATA, &s);
+    curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, writeFile);
     res = curl_easy_perform(easy);
     if(res != CURLE_OK) {
         string err = curl_easy_strerror(res);
@@ -54,6 +54,9 @@ int downloadEach(string url, string name) {
         return 1;
     }
     curl_easy_cleanup(easy);
+    file.open(fn);
+    file << s;
+    file.close();
     return 0;
 }
 
@@ -73,8 +76,10 @@ int updateRepositories() {
         cli.error("/etc/repositories.json not found! Try reinstalling LIGHT.");
         return 1;
     }
+    return 0;
 }
 
 int funcs::update() {
     updateRepositories();
+    return 0;
 }
